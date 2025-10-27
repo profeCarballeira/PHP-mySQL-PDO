@@ -16,7 +16,19 @@ try {
   //2.Process
   //1 copy the template from phpMyAdmin
   //$sql = "INSERT INTO `city` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUES (NULL, \'CabezaDeVaca\', \'ESP\', \'\', \'201\');";
-  $sql = "INSERT INTO city (Name, CountryCode, Population) VALUES ('Moreiras','ESP',601)";
+  //$sql = "INSERT INTO city (Name, CountryCode, Population) VALUES ('Moreiras','ESP',601)";
+
+  //2 set a sentence with previous variables
+  //$nameCity = "Vila de Cruces";
+  //$codeCountry = "ESP";
+  //$popu = 5082;
+  //$sql = "INSERT INTO city (Name, CountryCode, Population) VALUES ('" . $nameCity . "','" . $codeCountry . "'," . $popu . ")";
+
+  //3 insert in the city table with data form a form
+  if (isset ($_GET['vill']) and isset($_GET['popu'])){
+    $sql = "INSERT INTO city (Name, CountryCode, Population) 
+        VALUES ('" . $_GET['vill'] . "','ESP'," .$_GET['popu']. ")";
+    }
 
   echo $sql; //sometimes it's important to debug
   $conn->exec($sql);
