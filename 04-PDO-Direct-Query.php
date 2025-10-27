@@ -16,8 +16,8 @@ try {
   //$sql = "SELECT * from city";
   //$sql = "SELECT Name, Population FROM city WHERE CountryCode ='ESP'";
   //$sql = "SELECT Name, Population  FROM city WHERE CountryCode = (select Code from country where name like 'Spain')";
-  $sql = "SELECT city.Name, city.Population FROM city, country WHERE city.CountryCode=country.Code AND country.Name='Spain'";
-  
+  //$sql = "SELECT city.Name, city.Population FROM city, country WHERE city.CountryCode=country.Code AND country.Name='Spain'";
+  $sql = "SELECT city.Name, city.Population FROM city INNER JOIN country ON city.CountryCode=country.Code WHERE country.Name='Spain'";
   $result = $conn->query($sql);
 
   foreach ( $result as $row) {
